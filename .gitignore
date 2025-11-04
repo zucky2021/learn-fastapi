@@ -1,0 +1,6 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+
+# 仮想環境(プロジェクト専用の仮想環境)
+.venv
