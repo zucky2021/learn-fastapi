@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev # 開発ステージをビルド
+    container_name: learn-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      # 開発時はコードをマウントしてホットリロード
+      - ./main.py:/app/main.py
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./uv.lock:/app/uv.lock
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
